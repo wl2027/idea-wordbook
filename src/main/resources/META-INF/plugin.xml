@@ -1,7 +1,7 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.wl2027.ideawordbook</id>
-    <name>idea-wordbook</name>
+    <id>com.github.wl2027.wordbook</id>
+    <name>wordbook-review</name>
     <vendor>wl2027</vendor>
 
     <depends>com.intellij.modules.platform</depends>
