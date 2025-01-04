@@ -5,14 +5,25 @@
     <vendor>wl2027</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>cn.yiiguxing.plugin.translate</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.wl2027.ideawordbook.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <applicationService serviceInterface="com.idea.wordbook.WordBookScheduler" serviceImplementation="com.idea.wordbook.WordBookScheduler"/>
+        <applicationConfigurable parentId="tools" id="WordBookSettingsConfigurable" displayName="WordBook Review Settings" instance="com.idea.wordbook.WordBookSettingsConfigurable"/>
+        <applicationService serviceInterface="com.idea.wordbook.WordBookSettings" serviceImplementation="com.idea.wordbook.WordBookSettings"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.wl2027.ideawordbook.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener class="com.idea.wordbook.WordBookActivator" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
+    <actions>
+        <action id="WordReviewAction"
+                class="com.idea.wordbook.WordReviewAction"
+                text="Wordbook Review Start/Stop"
+                description="Start/Stop the wordbook review scheduler">
+        </action>
+    </actions>
 </idea-plugin>
